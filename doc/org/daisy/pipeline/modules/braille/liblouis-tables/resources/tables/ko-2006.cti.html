@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml version="1.1" encoding="UTF-8"?><html>
+<head prefix="dp2: http://www.daisy.org/ns/pipeline/">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rev="dp2:doc" href="ko-2006.cti">
+<link rel="rdf:type" href="http://www.daisy.org/ns/pipeline/source">
+<style type="text/css">.code { white-space: pre; font-family: monospace; }
+.code-liblouis-comment { color: #aaaaaa; }
+.code-liblouis-feature-key { font-weight: bold; color: #ccaa00; }
+.code-liblouis-feature-value { font-weight: bold; color: #aa3311; }</style>
+</head>
+<body><div class="code">
+<span class="code-liblouis-comment"># liblouis: Korean (Base table and chars for 2006 edition)</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment"># Based on the braille contraction table in BRLTTY</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment"># Copyright (C) 1995-2012 by The BRLTTY Team. </span>
+<span class="code-liblouis-comment"># Copyright (C) 2012 by Samuel Thibault &lt;samuel.thibault@ens-lyon.org&gt;</span>
+<span class="code-liblouis-comment"># Copyright (C) 2012 by Mesar Hameed &lt;mhameed@src.gnome.org&gt;</span>
+<span class="code-liblouis-comment"># Copyright (C) 2014 by Joseph Lee &lt;joseph.lee22590@gmail.com&gt;</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment"># This file is part of liblouis.</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment"># liblouis is free software: you can redistribute it and/or modify it</span>
+<span class="code-liblouis-comment"># under the terms of the GNU Lesser General Public License as</span>
+<span class="code-liblouis-comment"># published by the Free Software Foundation, either version 3 of the</span>
+<span class="code-liblouis-comment"># License, or (at your option) any later version.</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment"># liblouis is distributed in the hope that it will be useful, but</span>
+<span class="code-liblouis-comment"># WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="code-liblouis-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="code-liblouis-comment"># Lesser General Public License for more details.</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment"># You should have received a copy of the GNU Lesser General Public</span>
+<span class="code-liblouis-comment"># License along with liblouis. If not, see</span>
+<span class="code-liblouis-comment"># &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="code-liblouis-comment"># This is missing CHITUEUM*, CEONGCHIEUMSIOS, PANSIOS, YESIEUNG, RINHIEUH and</span>
+<span class="code-liblouis-comment"># ARAEA for which I couldn't find documentation.  Please contact me to fix</span>
+<span class="code-liblouis-comment"># anything, as this table was generated from a C program.</span>
+
+<span class="code-liblouis-comment">#Same as ko.cti except for punctuation dot changes.</span>
+
+include chardefs.cti All character definition opcodes
+include <a class="source" href="braille-patterns.cti.html">braille-patterns.cti</a>
+
+<span class="code-liblouis-comment"># Braille indicators</span>
+numsign 3456  number sign, just a dots operand
+capsign 6
+begcaps 6-6
+endcaps 6-3
+firstwordital 46-46
+lastworditalbefore 46
+lenitalphrase 4
+firstletterital 46-3
+lastletterital 46-36
+singleletterital 46-25
+firstwordbold 456-456
+lastwordboldbefore 456
+lenboldphrase 4
+begcomp 456-346
+endcomp 456-156
+
+<span class="code-liblouis-comment"># literary forms of the decimal digits</span>
+include <a class="source" href="litdigits6Dots.uti.html">litdigits6Dots.uti</a>
+
+<span class="code-liblouis-comment"># Letters are defined in chardefs.cti</span>
+
+<span class="code-liblouis-comment"># punctuation</span>
+prepunc ( 36
+word ( 36
+always ( 36
+postpunc ) 36
+word ) 36
+always ) 36
+prepunc " 236
+postpunc " 356
+word " 236
+prepunc ` 236
+prepunc ' 6-236
+postpunc ' 356-3
+word ' 4-3
+word 'em = 
+word 'tis =
+word 'twas =
+begnum # 3456 print number sign before number
+midnum , 5
+postpunc , 5
+word , 5
+always , 5
+decpoint . 3
+midnum - 36
+hyphen - 36
+always \s--\s 36-36
+always \s-\s 36-36
+midnum \x00ad 36
+postpunc . 256
+word . 256
+always . 256
+postpunc ; 56-23
+word ; 56-23
+midnum : 5-2
+postpunc : 5-2
+always : 5-2
+postpunc ! 235
+always ! 235
+midnum / 456-34
+always / 456-34
+always &lt; 5-13
+always = 25-25
+always &gt; 46-2
+always + 5-235
+postpunc ? 236
+word ? 236
+always ? 236
+endnum st 34
+endnum nd 1345-145
+endnum rd 1235-145
+endnum 's 3-234
+endnum th 1456
+endnum 's 3-234
+always % 356-1234
+midnum ^ 45
+always ^ 456-126
+always ~ 36-36
+always &amp; 4-12346
+midnum * 5-23
+always * 35-35
+prepunc [ 236-3
+word [ 236-3
+always [ 236-3
+postpunc ] 6-356
+word ] 6-356
+always ] 6-356
+prepunc { 236-23
+word { 236-23
+always { 236-23
+postpunc } 56-356
+word } 56-356
+always } 56-356
+always @ 4-1
+always \\ 4-1256
+always | 456-1256
+always \s-\s 36
+always ..." 5-5-5-356
+always … 5-5-5
+always ... 5-5-5
+always ...' 5-5-5-356-3
+repeated .... 0
+repeated ____ 6-36-36-3
+repeated ---- 36
+always .\s.\s." 3-3-3-356
+always .\s.\s. 3-3-3 . . .
+begnum $ 256
+always $ 4-256
+always _ 6-36-36-3
+always — 56-36-36-23
+
+<span class="code-liblouis-comment"># special character sequences</span>
+compbrl :// URLs
+compbrl ()
+compbrl www.
+compbrl ::
+compbrl .com
+compbrl .edu
+compbrl .gov
+compbrl .ini
+compbrl .mil
+compbrl .net
+compbrl .org
+compbrl .doc
+compbrl .xml
+compbrl .xsl
+compbrl .htm
+compbrl .html
+compbrl .tex
+compbrl .txt
+compbrl .gif
+compbrl .jpg
+compbrl .png
+compbrl .wav
+compbrl .tar
+compbrl .zip
+
+context "\e"$a *
+always \\_ 56 letter sign before Roman page numbers
+pass2 @56-56 @56
+pass2 @3-56 @3
+
+
+<span class="code-liblouis-comment">#Korean section:</span>
+
+<span class="code-liblouis-comment">#Detect English:</span>
+letsign 356
+
+<span class="code-liblouis-comment">#Basic letter patterns (to be used in G1 and G2):</span>
+include <a class="source" href="ko-chars.cti.html">ko-chars.cti</a>
+
+
+</div></body>
+</html>

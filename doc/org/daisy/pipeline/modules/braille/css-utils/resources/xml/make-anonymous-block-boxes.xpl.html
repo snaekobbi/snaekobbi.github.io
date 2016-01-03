@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html prefix="dp2: http://www.daisy.org/ns/pipeline/">
+<head>
+<link rev="dp2:doc" href="make-anonymous-block-boxes.xpl">
+<link rel="rdf:type" href="http://www.daisy.org/ns/pipeline/source">
+<style type="text/css">
+						.code {
+						  white-space: pre;
+						  font-family: monospace;
+						}
+						.code-xml-element-local-name {
+						  color: #1d58d0;
+						}
+						.code-xml-attribute-local-name {
+						  color: #dca000;
+						}
+						.code-xml-attribute-value {
+						  color: #2994a1;
+						}
+						.code-xml-element-prefix,
+						.code-xml-attribute-prefix {
+						  color: #9030b0;
+						}
+					</style>
+</head>
+<body><div class="code">&lt;<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">declare-step</span> <span class="code-xml-attribute-local-name">type</span>=<span class="code-xml-attribute-value">"css:make-anonymous-block-boxes"</span> <span class="code-xml-attribute-local-name">exclude-inline-prefixes</span>=<span class="code-xml-attribute-value">"#all"</span> <span class="code-xml-attribute-local-name">version</span>=<span class="code-xml-attribute-value">"1.0"</span>&gt;
+    
+    &lt;<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">documentation</span>&gt;
+        Wrap inline boxes that have sibling block boxes in anonymous block boxes.
+        (http://snaekobbi.github.io/braille-css-spec/#anonymous-boxes).
+    &lt;/<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">documentation</span>&gt;
+    
+    &lt;<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">input</span> <span class="code-xml-attribute-local-name">port</span>=<span class="code-xml-attribute-value">"source"</span>&gt;
+        &lt;<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">documentation</span>&gt;
+            The input is assumed to be a tree-of-boxes representation of a document that consists of
+            only a css:box or css:_ document element, css:box elements, text nodes, and text-only
+            css:{string|counter|leader|text|_} elements. There should be no block boxes inside
+            inline boxes. If the input represents a named flow this must be indicated with a
+            css:flow attribute on the document element.
+        &lt;/<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">documentation</span>&gt;
+    &lt;/<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">input</span>&gt;
+    
+    &lt;<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">output</span> <span class="code-xml-attribute-local-name">port</span>=<span class="code-xml-attribute-value">"result"</span>&gt;
+        &lt;<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">documentation</span>&gt;
+            Adjacent inline boxes with one or more sibling block boxes are grouped and wrapped in an
+            anonymous block box. Inline boxes in the normal flow that are not already contained in a
+            block box are wrapped in an anonymous block box as well.
+        &lt;/<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">documentation</span>&gt;
+    &lt;/<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">output</span>&gt;
+    
+    &lt;<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">wrap</span> <span class="code-xml-attribute-local-name">match</span>=<span class="code-xml-attribute-value">"css:box[@type='inline'][preceding-sibling::css:box[@type='block'] or                                            following-sibling::css:box[@type='block'] or                                            not(parent::*) or                                            parent::css:_[not(@css:flow[not(.='normal')])]]"</span> <span class="code-xml-attribute-local-name">group-adjacent</span>=<span class="code-xml-attribute-value">"true()"</span> <span class="code-xml-attribute-local-name">wrapper</span>=<span class="code-xml-attribute-value">"css:_box_"</span>/&gt;
+    
+    &lt;<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">add-attribute</span> <span class="code-xml-attribute-local-name">match</span>=<span class="code-xml-attribute-value">"css:_box_"</span> <span class="code-xml-attribute-local-name">attribute-name</span>=<span class="code-xml-attribute-value">"type"</span> <span class="code-xml-attribute-local-name">attribute-value</span>=<span class="code-xml-attribute-value">"block"</span>/&gt;
+    
+    &lt;<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">rename</span> <span class="code-xml-attribute-local-name">match</span>=<span class="code-xml-attribute-value">"css:_box_"</span> <span class="code-xml-attribute-local-name">new-name</span>=<span class="code-xml-attribute-value">"css:box"</span>/&gt;
+    
+&lt;/<span class="code-xml-element-prefix">p:</span><span class="code-xml-element-local-name">declare-step</span>&gt;</div></body>
+</html>

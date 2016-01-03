@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml version="1.1" encoding="UTF-8"?><html>
+<head prefix="dp2: http://www.daisy.org/ns/pipeline/">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rev="dp2:doc" href="ukmaths_edit.ctb">
+<link rel="rdf:type" href="http://www.daisy.org/ns/pipeline/source">
+<style type="text/css">.code { white-space: pre; font-family: monospace; }
+.code-liblouis-comment { color: #aaaaaa; }
+.code-liblouis-feature-key { font-weight: bold; color: #ccaa00; }
+.code-liblouis-feature-value { font-weight: bold; color: #aa3311; }</style>
+</head>
+<body><div class="code">
+<span class="code-liblouis-comment"># liblouis Table for Post-Translation Editing</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by</span>
+<span class="code-liblouis-comment">#  The BRLTTY Team</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  Copyright (C) 2004, 2005, 2006</span>
+<span class="code-liblouis-comment">#  ViewPlus Technologies, Inc. www.viewplus.com</span>
+<span class="code-liblouis-comment">#  and</span>
+<span class="code-liblouis-comment">#  JJB Software, Inc. www.jjb-software.com</span>
+<span class="code-liblouis-comment">#  All rights reserved</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  This file is free software; you can redistribute it and/or modify it</span>
+<span class="code-liblouis-comment">#   under the terms of the Lesser or Library GNU General Public License </span>
+<span class="code-liblouis-comment">#  as published by the</span>
+<span class="code-liblouis-comment">#  Free Software Foundation; either version 3, or (at your option) any</span>
+<span class="code-liblouis-comment">#  later version.</span>
+<span class="code-liblouis-comment"># </span>
+<span class="code-liblouis-comment">#  This file is distributed in the hope that it will be useful, but</span>
+<span class="code-liblouis-comment">#  WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="code-liblouis-comment">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the </span>
+<span class="code-liblouis-comment">#  Library GNU General Public License for more details.</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  You should have received a copy of the Library GNU General Public </span>
+<span class="code-liblouis-comment">#  License along with this program; see the file COPYING.  If not, write </span>
+<span class="code-liblouis-comment">#  to</span>
+<span class="code-liblouis-comment">#  the Free Software Foundation, 51 Franklin Street, Fifth Floor,</span>
+<span class="code-liblouis-comment">#  Boston, MA 02110-1301, USA.</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  Maintained by John J. Boyer john.boyer@jjb-software.com</span>
+<span class="code-liblouis-comment"># Updated 6-18-08 by Mike Sivill &lt;mike.sivill@viewplus.com&gt;</span>
+include <a class="source" href="ukmaths_single_cell_defs.cti.html">ukmaths_single_cell_defs.cti</a>
+
+math \x0001 56
+math \x0002 45
+math \x0003 56
+math \x0004 45
+repeated \s 0
+always \ee\s`4 6-256
+always \ee\s`1 6
+always \ee\s`3 6-25
+always \ee\s`2 6-23
+always `7\s\eb 12356
+always \ee\s`7 23456
+always "\s 0
+always \s,\s 6-0
+<span class="code-liblouis-comment"># context "\eb"[]$l"\ee" @56</span>
+<span class="code-liblouis-comment"># context "\eb"[]","$l"\ee" @56</span>
+
+pass2 @1b-12 ?
+pass2 @1b-15 ?
+pass2 @1b-12-4-4 @4
+</div></body>
+</html>

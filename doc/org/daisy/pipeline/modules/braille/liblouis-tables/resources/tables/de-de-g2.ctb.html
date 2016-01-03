@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml version="1.1" encoding="UTF-8"?><html>
+<head prefix="dp2: http://www.daisy.org/ns/pipeline/">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rev="dp2:doc" href="de-de-g2.ctb">
+<link rel="rdf:type" href="http://www.daisy.org/ns/pipeline/source">
+<style type="text/css">.code { white-space: pre; font-family: monospace; }
+.code-liblouis-comment { color: #aaaaaa; }
+.code-liblouis-feature-key { font-weight: bold; color: #ccaa00; }
+.code-liblouis-feature-value { font-weight: bold; color: #aa3311; }</style>
+</head>
+<body><div class="code">
+<span class="code-liblouis-comment"># liblouis: German Grade 2 Braille</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  Copyright (C) 2009 SBS Schweizerische Bibliothek für Blinde und Sehbehinderte</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  This file is part of liblouis.</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  liblouis is free software: you can redistribute it and/or modify it</span>
+<span class="code-liblouis-comment">#  under the terms of the GNU Lesser General Public License as</span>
+<span class="code-liblouis-comment">#  published by the Free Software Foundation, either version 3 of the</span>
+<span class="code-liblouis-comment">#  License, or (at your option) any later version.</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  liblouis is distributed in the hope that it will be useful, but</span>
+<span class="code-liblouis-comment">#  WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="code-liblouis-comment">#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="code-liblouis-comment">#  Lesser General Public License for more details.</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  You should have received a copy of the GNU Lesser General Public</span>
+<span class="code-liblouis-comment">#  License along with liblouis. If not, see</span>
+<span class="code-liblouis-comment">#  &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#-------------------------------------------------------------------------------</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  DEUTSCHE KURZSCHRIFT - German Grade 2 Braille - Germany, Austria</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#  Version 2009-11-19</span>
+<span class="code-liblouis-comment">#  christian.waldvogel@sbszh.ch</span>
+<span class="code-liblouis-comment">#</span>
+<span class="code-liblouis-comment">#-------------------------------------------------------------------------------</span>
+
+
+include <a class="source" href="de-de-g0.utb.html">de-de-g0.utb</a>
+letsign 6
+
+<span class="code-liblouis-comment"># All exception rules which use the letter "ß" are added BEFORE</span>
+<span class="code-liblouis-comment"># de-g2-core is included</span>
+always raufuß 1235-16-124-136-6-2346
+always raufüß 1235-16-124-1256-6-2346
+always beruß 23-1235-136-6-2346
+always beiß 12-146-6-2346
+always beimaß 2-12-134-1-6-2346
+always demgemäß 2-12356-12346-134-345-6-2346
+word außerdem 16-6-2346-12456-2-12356
+midendword emaß 15-134-1-6-2346
+midendword emäßig 15-134-345-6-2346-45
+always mußestund 134-136-6-2346-15-23456-256-145
+always mußestünd 134-136-6-2346-15-23456-1256-1345-145
+always mädesüß 134-345-145-15-234-1256-6-2346
+begmidword außengeländ 16-6-2346-14-12346-123-345-1345-145
+always genieß 12346-1345-346-6-2346
+always genuß 12346-1345-136-6-2346
+always steingeiß 23456-1246-1245-146-6-2346
+always habergeiß 125-1-12-12456-1245-146-6-2346
+always herreiß 125-12456-1235-146-6-2346
+midendword ßion 6-2346-245
+midendword ßions 6-2346-245-234
+always müßig 134-1256-6-2346-45
+always ß 6-2346
+syllable stöß 23456-246-6-2346
+midendword sspaß 234-234-1234-1-6-2346
+midendword sstoß 234-23456-135-6-2346
+midendword sstraß 234-23456-1235-1-6-2346
+always jakobstraß 245-1-13-135-12-23456-1235-1-6-2346
+always einfallstraß 1246-124-12345-23456-1235-1-6-2346
+begmidword karlstraß 13-356-123-23456-1235-1-6-2346
+always fahrtstraß 2-1235-2345-23456-1235-1-6-2346
+always fahrtsträß 2-1235-2345-23456-1235-345-6-2346
+always begrüßungstrunk 23-1245-1235-1256-6-2346-136-234-2345-1235-256-13
+always beißt 12-146-6-2346-2345
+
+include <a class="source" href="de-g2-core.cti.html">de-g2-core.cti</a>
+</div></body>
+</html>

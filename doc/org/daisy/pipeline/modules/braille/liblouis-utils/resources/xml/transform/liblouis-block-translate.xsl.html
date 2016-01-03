@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html prefix="dp2: http://www.daisy.org/ns/pipeline/">
+<head>
+<link rev="dp2:doc" href="liblouis-block-translate.xsl">
+<link rel="rdf:type" href="http://www.daisy.org/ns/pipeline/source">
+<style type="text/css">
+						.code {
+						  white-space: pre;
+						  font-family: monospace;
+						}
+						.code-xml-element-local-name {
+						  color: #1d58d0;
+						}
+						.code-xml-attribute-local-name {
+						  color: #dca000;
+						}
+						.code-xml-attribute-value {
+						  color: #2994a1;
+						}
+						.code-xml-element-prefix,
+						.code-xml-attribute-prefix {
+						  color: #9030b0;
+						}
+					</style>
+</head>
+<body><div class="code">&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">stylesheet</span> <span class="code-xml-attribute-local-name">version</span>=<span class="code-xml-attribute-value">"2.0"</span> <span class="code-xml-attribute-local-name">exclude-result-prefixes</span>=<span class="code-xml-attribute-value">"#all"</span>&gt;
+	
+	&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">import</span> <span class="code-xml-attribute-local-name">href</span>=<span class="code-xml-attribute-value">"<a href="../../../../css-utils/resources/xml/transform/block-translator-template.xsl.html" class="source">http://www.daisy.org/pipeline/modules/braille/css-utils/transform/block-translator-template.xsl</a>"</span>/&gt;
+	
+	&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">param</span> <span class="code-xml-attribute-local-name">name</span>=<span class="code-xml-attribute-value">"query"</span>/&gt;
+	
+	&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">template</span> <span class="code-xml-attribute-local-name">match</span>=<span class="code-xml-attribute-value">"css:block"</span> <span class="code-xml-attribute-local-name">mode</span>=<span class="code-xml-attribute-value">"#default before after"</span>&gt;
+		&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">variable</span> <span class="code-xml-attribute-local-name">name</span>=<span class="code-xml-attribute-value">"text"</span> <span class="code-xml-attribute-local-name">as</span>=<span class="code-xml-attribute-value">"text()*"</span> <span class="code-xml-attribute-local-name">select</span>=<span class="code-xml-attribute-value">"//text()"</span>/&gt;
+		&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">variable</span> <span class="code-xml-attribute-local-name">name</span>=<span class="code-xml-attribute-value">"style"</span> <span class="code-xml-attribute-local-name">as</span>=<span class="code-xml-attribute-value">"xs:string*"</span>&gt;
+			&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">for-each</span> <span class="code-xml-attribute-local-name">select</span>=<span class="code-xml-attribute-value">"$text"</span>&gt;
+				&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">variable</span> <span class="code-xml-attribute-local-name">name</span>=<span class="code-xml-attribute-value">"inline-style"</span> <span class="code-xml-attribute-local-name">as</span>=<span class="code-xml-attribute-value">"element()*"</span> <span class="code-xml-attribute-local-name">select</span>=<span class="code-xml-attribute-value">"css:computed-properties($inline-properties[not(.='word-spacing')], true(), parent::*)"</span>/&gt;
+				&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">sequence</span> <span class="code-xml-attribute-local-name">select</span>=<span class="code-xml-attribute-value">"css:serialize-declaration-list($inline-style[not(@value=css:initial-value(@name))])"</span>/&gt;
+			&lt;/<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">for-each</span>&gt;
+		&lt;/<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">variable</span>&gt;
+		&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">variable</span> <span class="code-xml-attribute-local-name">name</span>=<span class="code-xml-attribute-value">"lang"</span> <span class="code-xml-attribute-local-name">select</span>=<span class="code-xml-attribute-value">"ancestor-or-self::*[@xml:lang][1]/string(@xml:lang)"</span>/&gt;
+		&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">apply-templates</span> <span class="code-xml-attribute-local-name">select</span>=<span class="code-xml-attribute-value">"node()[1]"</span> <span class="code-xml-attribute-local-name">mode</span>=<span class="code-xml-attribute-value">"treewalk"</span>&gt;
+			&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">with-param</span> <span class="code-xml-attribute-local-name">name</span>=<span class="code-xml-attribute-value">"new-text-nodes"</span> <span class="code-xml-attribute-local-name">select</span>=<span class="code-xml-attribute-value">"louis:translate(concat($query,'(locale:',$lang,')'), $text, $style)"</span>/&gt;
+		&lt;/<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">apply-templates</span>&gt;
+	&lt;/<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">template</span>&gt;
+	
+	&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">template</span> <span class="code-xml-attribute-local-name">match</span>=<span class="code-xml-attribute-value">"css:property[@name='letter-spacing']"</span> <span class="code-xml-attribute-local-name">mode</span>=<span class="code-xml-attribute-value">"translate-declaration-list"</span>/&gt;
+	
+	&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">template</span> <span class="code-xml-attribute-local-name">match</span>=<span class="code-xml-attribute-value">"css:property[@name='word-spacing']"</span> <span class="code-xml-attribute-local-name">mode</span>=<span class="code-xml-attribute-value">"translate-declaration-list"</span>&gt;
+		&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">sequence</span> <span class="code-xml-attribute-local-name">select</span>=<span class="code-xml-attribute-value">"."</span>/&gt;
+	&lt;/<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">template</span>&gt;
+	
+	&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">template</span> <span class="code-xml-attribute-local-name">match</span>=<span class="code-xml-attribute-value">"css:property[@name=('text-transform','font-style','font-weight','text-decoration','color')]"</span> <span class="code-xml-attribute-local-name">mode</span>=<span class="code-xml-attribute-value">"translate-declaration-list"</span>/&gt;
+	
+	&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">template</span> <span class="code-xml-attribute-local-name">match</span>=<span class="code-xml-attribute-value">"css:property[@name='hyphens' and @value='auto']"</span> <span class="code-xml-attribute-local-name">mode</span>=<span class="code-xml-attribute-value">"translate-declaration-list"</span>&gt;
+		&lt;<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">sequence</span> <span class="code-xml-attribute-local-name">select</span>=<span class="code-xml-attribute-value">"css:property('hyphens','manual')"</span>/&gt;
+	&lt;/<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">template</span>&gt;
+	
+&lt;/<span class="code-xml-element-prefix">xsl:</span><span class="code-xml-element-local-name">stylesheet</span>&gt;</div></body>
+</html>

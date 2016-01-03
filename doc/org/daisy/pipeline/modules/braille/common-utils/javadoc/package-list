@@ -1,0 +1,4 @@
+org.daisy.pipeline.braille.common
+org.daisy.pipeline.braille.common.calabash
+org.daisy.pipeline.braille.common.calabash.impl
+org.daisy.pipeline.braille.common.saxon.impl
